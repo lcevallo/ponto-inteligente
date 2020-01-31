@@ -1,0 +1,22 @@
+App Structure
+
+• src
++--------• app
+|         +----•autenticacion
+|         |     +----•cadastro-pj
+|         |     |     +--------•components
+|         |     |     |        +---•cadastrar-pj
+|         |     |     |             |----cadastrar-pj.component.ts|.html|.spec.ts|.css
+|         |     |     |             |----index.ts
+|         |     |     |        |---•index.ts
+|         |     |     |        |---•cadastro-pj.component.ts (Wrapper que tiene el router)
+|         |     |     +--------•models
+|         |     |     |        |----cadastro-pj.model.ts
+|         |     |     |        |----index.ts
+|         |     |     +--------•services
+|         |     |     |        |----cadastro-pj.service.ts
+|         |     |     |        |----index.ts
+
+|         |     |     +---------cadastro-pj.module.ts
+|         |     |     +---------cadastro-pj-routing.module.ts
+|         |     |     +---------index.ts

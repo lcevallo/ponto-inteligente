@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatSnackBarModule, MatTooltipModule} from '@angular/material';
 import {SharedModule} from '../../shared/shared.module';
+import {CadastrarPfService} from './services';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {SharedModule} from '../../shared/shared.module';
     MatTooltipModule,
     MatSnackBarModule,
     SharedModule
-  ]
+  ],
+  providers: [CadastrarPfService]
 })
 export class CadastroPfModule { }

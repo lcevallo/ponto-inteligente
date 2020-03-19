@@ -30,7 +30,7 @@ Ver video 018 Criando modulo de componente de cadastro
 
 echo "# ponto-inteligente" >> README.md
 git init
-git add README.md
+git add .
 git commit -m "https://www.udemy.com/course/curso-de-angular-2-5-avancado/"
 git remote add origin https://github.com/lcevallo/ponto-inteligente.git
 git push -u origin master
@@ -39,7 +39,7 @@ Para crear una clase modelo
 ng g cl autenticacion/cadastro-pj/models/cadastro-pj --spec=false --type=model
 
 Para crear un modulo con su respectiva ruta
-ng g module shared --routing 
+ng g module shared --routing
 ng g module autenticacion/cadastro-pf --routing
 
 Para crear directivas
@@ -49,8 +49,7 @@ ng g cl shared/validators/cnpj --type=validator --spec=false
 
 ng g s autenticacion/cadastro-pj/services/cadastro-pj --spec=false
 
-
-cd ponto-inteligente-api-curso-angular
+cd ../ponto-inteligente-api-curso-angular
 mvnw.cmd spring-boot:run
 
 CNPJ 52.003.129/0001-57
@@ -61,10 +60,39 @@ ng g module autenticacion/cadastro-pf --routing
 ng g component autenticacion/cadastro-pf/components/cadastrar-pf --spec=false
 
 Para generar el Wrapper
-ng g component autenticacion/cadastro-pf/components/cadastro-pf/  --inlineTemplate=true --inlineStyle=true --skipTests=true --skipSelector=true --flat=true
+ng g component autenticacion/cadastro-pf/components/cadastro-pf/ --inlineTemplate=true --inlineStyle=true --skipTests=true --skipSelector=true --flat=true
 
 Para crear el modelo
 ng g cl autenticacion/cadastro-pf/models/cadastro-pf --skipTests=true --type=model
 
 ng serve --aot
 ng g cl autenticacion/cadastro-pf/models/cadastro-pf --spec=false --type=model
+ng g s autenticacion/cadastro-pf/services/cadastrar-pf --skipTests=true
+
+Para Funcionarios
+ng g module funcionario --routing
+ng g component funcionario/components/listagem --skipTests=true
+ng g component funcionario/components/lancamento --skipTests=true
+
+Para generar el Wrapper
+ng g component funcionario/components/funcionario --inlineTemplate=true --inlineStyle=true --skipTests=true --skipSelector=true --flat=true
+
+npm install moment --save
+ng generate e shared/models/tipo
+
+ng g cl shared/models/Lancamento --skipTests=true --type=model
+
+ng g s shared/services/http-util --skipTests=true
+ng g s shared/services/lancamento --skipTests=true
+
+ng g pipe shared/pipes/tipo --skipTests=true
+ng g pipe shared/pipes/data --skipTests=true
+
+Para Administradores
+ng g module admin --routing
+ng g component admin/components/listagem --skipTests=true
+ng g component admin/components/cadastro --skipTests=true
+ng g component admin/components/atualizacao --skipTests=true
+ng g component admin/admin --inlineTemplate=true --inlineStyle=true --skipTests=true --skipSelector=true --flat=true
+
+ng g cl shared/models/funcionario --skipTests=true --type=model

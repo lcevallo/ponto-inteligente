@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatSnackBar} from '@angular/material';
 import {Login} from '../../models';
 import {LoginService} from '../../services';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private  snackBar: MatSnackBar,
+    private router: Router,
     private loginService: LoginService
   ) { }
 
@@ -39,19 +41,17 @@ export class LoginComponent implements OnInit {
     this.loginService.lugar(login)
       .subscribe(
           data => {
-                          console.log(JSON.stringify(data)),
                           localStorage['token'] = data['data']['token'];
                           const usuarioData = JSON.parse(
                               atob(data['data']['token'].split('.')[1]));
-                          if(usuarioData['role'] == 'ROLE_ADMIN') {
-                            alert('Debe de redireccionar para la pagina de admin');
+                          if (usuarioData['role'] === 'ROLE_ADMIN') {
+                            this.router.navigate(['/admin']);
                           }
-                          else{
-                            alert('Debe de redireccionar para la pagina de funcionario');
+                          else {
+                            this.router.navigate(['/funcionario']);
                           }
                         },
             error => {
-                            console.log(JSON.stringify(error));
                             let msg: string = 'Intente nuevamente mas tarde.';
                             if(error['status'] == 401){
                               msg = 'Email/contraseña invalidos.';

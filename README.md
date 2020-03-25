@@ -96,3 +96,9 @@ ng g component admin/components/atualizacao --skipTests=true
 ng g component admin/admin --inlineTemplate=true --inlineStyle=true --skipTests=true --skipSelector=true --flat=true
 
 ng g cl shared/models/funcionario --skipTests=true --type=model
+ng g service shared/services/funcionario
+https://www.youtube.com/watch?v=dOnAC2Rr-6A
+https://www.youtube.com/channel/UCiFh_rmtVAGTc-oo__7IwCQ/videos
+https://www.youtube.com/channel/UCORuRdpN2QTCKnsuEaeK-kQ/playlists
+
+ng g guard admin/services/admin --skipTests=true

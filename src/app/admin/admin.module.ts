@@ -1,7 +1,10 @@
+import { AdminGuard } from './services/admin.guard';
+import { ConfirmarDialog } from './components/listagem/listagem.component';
 import {
   HttpUtilService,
   PtBrMatPaginatorIntl,
-  LancamentoService
+  LancamentoService,
+  FuncionarioService
 } from './../shared';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -18,7 +21,6 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
-  MatInput,
   MatButtonModule,
   MatListModule,
   MatTooltipModule,
@@ -33,7 +35,8 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatPaginatorIntl,
-  MAT_DATE_LOCALE
+  MAT_DATE_LOCALE,
+  MatInputModule
 } from '@angular/material';
 
 @NgModule({
@@ -41,7 +44,8 @@ import {
     ListagemComponent,
     CadastroComponent,
     AtualizacaoComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmarDialog
   ],
   imports: [
     CommonModule,
@@ -50,7 +54,7 @@ import {
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    MatInput,
+    MatInputModule,
     MatButtonModule,
     MatListModule,
     MatTooltipModule,
@@ -58,6 +62,7 @@ import {
     MatSnackBarModule,
     MatTableModule,
     MatSelectModule,
+
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -70,8 +75,11 @@ import {
     LancamentoService,
     HttpUtilService,
     MatPaginatorIntl,
+    FuncionarioService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
-  ]
+    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl },
+    AdminGuard
+  ],
+  entryComponents: [ConfirmarDialog]
 })
 export class AdminModule {}
